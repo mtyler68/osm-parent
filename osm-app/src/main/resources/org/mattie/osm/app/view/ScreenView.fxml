@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.media.MediaView?>
+
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.ScreenView">
+   <children>
+      <Pane fx:id="opaquePane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #000000;" />
+      <ImageView fx:id="imageView" fitHeight="296.0" fitWidth="724.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <MediaView fitHeight="1080.0" fitWidth="1920.0" />
+   </children>
+</StackPane>

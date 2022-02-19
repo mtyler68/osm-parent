@@ -1,0 +1,30 @@
+---
+name: "Two Parallel Notes"
+cues:
+- !<ParallelCue>
+  id: "568549fd-aaf4-4d2b-ac8c-b5f783d37b0f"
+  name: "Q1"
+  desc: "PARALLEL"
+  trigger: "MANUAL"
+  triggerProps: {}
+  delay: 0.0
+  nextCueAction: "CONTINUE"
+  cues:
+  - !<NoteCue>
+    id: "4a754f08-4ed2-444c-b17d-ed70c649946f"
+    name: "Q1.1"
+    desc: "NOTE 1"
+    trigger: "MANUAL"
+    triggerProps: {}
+    delay: 0.0
+    nextCueAction: "CONTINUE"
+    text: "Note cue for 'note one'"
+  - !<NoteCue>
+    id: "4e0df5d7-e2b2-4eb0-a37d-5dff28cd53e5"
+    name: "Q1.2"
+    desc: "NOTE 2"
+    trigger: "MANUAL"
+    triggerProps: {}
+    delay: 0.0
+    nextCueAction: "CONTINUE"
+    text: "Note cue for 'note two'"

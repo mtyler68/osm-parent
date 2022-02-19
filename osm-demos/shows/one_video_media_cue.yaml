@@ -1,0 +1,22 @@
+---
+name: "One Video Media Cue"
+cues:
+- !<MediaCue>
+  id: "be0fc358-b63a-431e-8483-c71698f8077f"
+  name: "Q1"
+  desc: "Contemporary 2021"
+  trigger: "MANUAL"
+  triggerProps: {}
+  delay: 0.0
+  nextCueAction: "CONTINUE"
+  media:
+    name: null
+    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\Holiday\
+      \ 2021 - Contemporary.mp4"
+    volume: 1.0
+    fadeIn: 5.000000000
+    fadeOut: 5.000000000
+    startAt: 0.0
+    stopAt: 20.000000000
+    type: "AUDIO_ONLY"
+    showVideo: false

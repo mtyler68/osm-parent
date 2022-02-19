@@ -1,0 +1,21 @@
+---
+name: "One Media Cue"
+cues:
+- !<MediaCue>
+  id: "ba1fe1e9-0d4f-4fc0-a158-b2f8e56854b0"
+  name: "Q1"
+  desc: "Brazil Samba"
+  trigger: "MANUAL"
+  triggerProps: {}
+  delay: 0.0
+  nextCueAction: "CONTINUE"
+  media:
+    name: "Brazil Samba"
+    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\bensound-brazilsamba.mp3"
+    volume: 0.3
+    fadeIn: 5.000000000
+    fadeOut: 5.000000000
+    startAt: 0.0
+    stopAt: 20.000000000
+    type: "AUDIO_ONLY"
+    showVideo: false

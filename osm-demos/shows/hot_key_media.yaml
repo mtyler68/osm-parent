@@ -1,0 +1,41 @@
+---
+name: "Hot Key Media"
+cues:
+- !<MediaCue>
+  id: "58c44e7c-63c8-4a34-abb3-33cd4305a7d3"
+  name: "Q1"
+  desc: "Circus Horn"
+  trigger: "HOT_KEY"
+  triggerProps:
+    hotKey: "H"
+  delay: 0.0
+  nextCueAction: "CONTINUE"
+  media:
+    name: "Circus Horn"
+    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\mixkit-clown-horn-at-circus-715.wav"
+    volume: 0.6
+    fadeIn: 0.0
+    fadeOut: 0.0
+    startAt: 0.0
+    stopAt: 2.900000000
+    type: "AUDIO_ONLY"
+    showVideo: false
+- !<MediaCue>
+  id: "b6de5c1a-aa2e-4928-b148-920409e4fd31"
+  name: "Q2"
+  desc: "Waterfall"
+  trigger: "HOT_KEY"
+  triggerProps:
+    hotKey: "W"
+  delay: 0.0
+  nextCueAction: "CONTINUE"
+  media:
+    name: "Waterfall"
+    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\mixkit-flowing-waterfall-on-forest-2516.wav"
+    volume: 0.4
+    fadeIn: 0.0
+    fadeOut: 0.0
+    startAt: 0.0
+    stopAt: 8.900000000
+    type: "AUDIO_ONLY"
+    showVideo: false
