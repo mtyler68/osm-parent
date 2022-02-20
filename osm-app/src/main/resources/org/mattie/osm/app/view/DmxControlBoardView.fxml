@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import org.controlsfx.control.SegmentedButton?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import org.controlsfx.control.cell.ColorGridCell?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.DmxControlBoardView">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="79.0" layoutY="63.0" mnemonicParsing="false" text="Add Key Frame" />
+            <SegmentedButton />
+            <ToggleButton layoutX="195.0" layoutY="38.0" mnemonicParsing="false" text="Discrete">
+               <toggleGroup>
+                  <ToggleGroup fx:id="interpolatorToggleGroup" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton layoutX="254.0" layoutY="38.0" mnemonicParsing="false" selected="true" text="Linear" toggleGroup="$interpolatorToggleGroup" />
+            <ToggleButton layoutX="302.0" layoutY="38.0" mnemonicParsing="false" text="Ease In" toggleGroup="$interpolatorToggleGroup" />
+            <ToggleButton layoutX="355.0" layoutY="38.0" mnemonicParsing="false" text="Ease Out" toggleGroup="$interpolatorToggleGroup" />
+            <ToggleButton layoutX="418.0" layoutY="38.0" mnemonicParsing="false" text="Ease Both" toggleGroup="$interpolatorToggleGroup" />
+         </children>
+      </Pane>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-width: 1px; -fx-border-style: solid;">
+               <children>
+                  <Label text="Control Name" />
+                  <ColorGridCell editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #00FF00;">
+                     <item>
+                        <Color red="0.48245614767074585" green="0.22484838962554932" blue="0.22484838962554932" />
+                     </item>
+                  </ColorGridCell>
+                  <CheckBox mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Key Frame" />
+                  <ToggleSwitch selected="true" text="Active" />
+                  <Button mnemonicParsing="false" text="ON" />
+                  <Label text="45%" />
+                  <Slider orientation="VERTICAL" value="45.0" VBox.vgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" text="OFF" />
+                  <ColorPicker editable="true" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

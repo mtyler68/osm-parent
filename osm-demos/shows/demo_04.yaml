@@ -2,58 +2,52 @@
 name: "2022 Spring Recital"
 cues:
 - !<NoteCue>
-  id: "d865d53a-138e-4280-adc6-c2acecabd51d"
+  id: "9d3ee5c5-a733-4c5a-ac0e-a40b25b304e4"
   name: "Q1"
   desc: "Start the show"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 5.000000000
-  nextCueAction: "CONTINUE"
   text: "Start show note with short delay"
 - !<SequentialCue>
-  id: "3977a48b-b8bc-445d-9b86-9423ac9a3b98"
+  id: "46ad9640-14a5-42df-af1a-aad25debabcc"
   name: "Q2"
   desc: "SequentialCue"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   cues:
   - !<NoteCue>
-    id: "1977a7c0-7556-4bf5-b5b6-495f8a8f08ac"
+    id: "1bb7face-832f-4f15-bb8f-26bd4d99080d"
     name: "Q2.1"
     desc: "sNote1"
     trigger: "MANUAL"
     triggerProps: {}
     delay: 0.0
-    nextCueAction: "CONTINUE"
     text: "sNote1"
   - !<NoteCue>
-    id: "e320723a-f399-481e-b4d0-1a1fd99aace1"
+    id: "b327c572-1bf9-48ac-9438-849b8865b05d"
     name: "Q2.2"
     desc: "sNote2"
     trigger: "MANUAL"
     triggerProps: {}
     delay: 3.000000000
-    nextCueAction: "CONTINUE"
     text: "sNote2"
   - !<NoteCue>
-    id: "a978348a-d509-4905-a8f3-fedce48e93dc"
+    id: "add97584-f394-4066-8835-ad824122e3cc"
     name: "Q2.3"
     desc: "sNote3"
     trigger: "MANUAL"
     triggerProps: {}
     delay: 3.000000000
-    nextCueAction: "CONTINUE"
     text: "sNote3"
 - !<MediaPlaylistCue>
-  id: "1efbb6f7-559b-4c3e-8910-9b47687415f7"
+  id: "87e69e30-c0b5-49dd-9c09-4eea05d370d1"
   name: "Q3"
   desc: "OPEN HOUSE PLAYLIST"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   volume: 1.0
   crossfade: 0.0
   resources:
@@ -88,13 +82,12 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<MediaCue>
-  id: "7a06afb2-a89a-4b5b-bbaa-7bb7703be7f6"
+  id: "72e94fd4-fb75-46c3-bbec-f9063b8d9f95"
   name: "Q4"
   desc: "Brazil Samba"
   trigger: "MANUAL"
   triggerProps: {}
   delay: 5.000000000
-  nextCueAction: "CONTINUE"
   media:
     name: null
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\bensound-brazilsamba.mp3"
@@ -106,13 +99,12 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<MediaCue>
-  id: "4495eea1-0953-4152-9736-ef91db4f0a27"
+  id: "ac0e26ce-146f-4a31-a7fb-ccf0becb3810"
   name: "Q5"
   desc: "Bungle In the Jungle"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   media:
     name: null
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\06 Bungle\
@@ -125,40 +117,36 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<NoteCue>
-  id: "16c663b0-5c15-4efe-bc04-3b7510d04fc3"
+  id: "6951bc47-f49e-4ad0-a8f1-273c211a396d"
   name: "Q6"
   desc: "DIM HOUSE LIGHTS"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 7.000000000
-  nextCueAction: "CONTINUE"
   text: "Manually DIM house lights"
 - !<ParallelCue>
-  id: "6475a161-c1a3-479b-a8e6-7aaa3ea9f20e"
+  id: "1cdc2e84-5e56-45d3-aa35-428323c0d034"
   name: "Q7"
   desc: "MOANA ACT 1"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   cues:
   - !<NoteCue>
-    id: "9fa2a454-9f66-4d3e-a942-029c77f1b94f"
+    id: "46b2f2d4-e81f-48f7-8f3a-e3c6e7eda7fc"
     name: "Q7.1"
     desc: "WITHOUT DELAY"
     trigger: "AUTO_START"
     triggerProps: {}
     delay: 0.0
-    nextCueAction: "CONTINUE"
     text: "No delay note"
   - !<MediaCue>
-    id: "d0671e97-2ae5-4290-8a97-d06212318f76"
+    id: "ef136e28-2fb0-4089-bbb9-b738b182e048"
     name: "Q7.2"
     desc: "The Lion Sleeps Tonight"
     trigger: "AUTO_START"
     triggerProps: {}
     delay: 5.000000000
-    nextCueAction: "CONTINUE"
     media:
       name: null
       file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 The\
@@ -171,22 +159,20 @@ cues:
       type: "AUDIO_ONLY"
       showVideo: false
   - !<NoteCue>
-    id: "577b5681-c23f-4603-b94c-039cb2e0c110"
+    id: "4f3b7201-0f43-4d2f-85ab-503f5c4ce1a8"
     name: "Q7.3"
     desc: "WIRELESS MICS - ON"
     trigger: "AUTO_START"
     triggerProps: {}
     delay: 10.000000000
-    nextCueAction: "CONTINUE"
     text: "Turn on wireless microphones"
 - !<MediaCue>
-  id: "4380fd2b-ed4d-4e62-8cc5-f94bc46566ee"
+  id: "2c3e5f59-c7c4-4093-9e02-a12f9d3cfda6"
   name: "Q8"
   desc: "Welcome to the Jungle"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   media:
     name: null
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Welcome\

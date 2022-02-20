@@ -11,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.mattie.osm.model.Cue;
+import org.mattie.osm.model.TriggerType;
 
 /**
  *
@@ -19,13 +20,6 @@ import org.mattie.osm.model.Cue;
 @Slf4j
 @ToString(of = {"name", "state", "trigger", "delay"})
 public abstract class CueViewModel<C extends Cue> {
-
-    public static enum Trigger {
-        MANUAL,
-        AUTO_START,
-        HOT_KEY,
-        TIME_OF_DAY
-    }
 
     public static enum State {
         READY,
@@ -41,7 +35,7 @@ public abstract class CueViewModel<C extends Cue> {
 
     @Getter
     @Setter
-    private Trigger trigger = Trigger.MANUAL;
+    private TriggerType trigger = TriggerType.MANUAL;
 
     @Setter
     @Getter
@@ -187,9 +181,9 @@ public abstract class CueViewModel<C extends Cue> {
         setId(cue.getId());
         setName(cue.getName());
         setDelay(fromTimeDuration(cue.getDelay()));
-        setTrigger(CueViewModel.Trigger.valueOf(cue.getTrigger().name()));
+        setTrigger(cue.getTrigger());
 
-        if (cue.getTrigger() == Cue.TriggerType.HOT_KEY) {
+        if (cue.getTrigger() == TriggerType.HOT_KEY) {
             setHotKey((String) cue.getTriggerProps().get("hotKey"));
         }
     }

@@ -2,11 +2,10 @@
 name: "One Note"
 cues:
 - !<NoteCue>
-  id: "98a5607e-27ec-46cc-89a5-074952143280"
+  id: "0edce390-35ed-4082-be62-a451ff69656f"
   name: "Q1"
   desc: "NOTE"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   text: "Note cue for 'one note'"

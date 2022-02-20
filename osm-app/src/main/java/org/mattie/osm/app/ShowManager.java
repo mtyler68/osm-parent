@@ -18,8 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.mattie.osm.app.model.CueViewModel;
 import org.mattie.osm.app.model.ShowViewModel;
 import org.mattie.osm.app.view.PlayerView;
-import org.mattie.osm.model.Cue;
 import org.mattie.osm.model.Show;
+import org.mattie.osm.model.TriggerType;
 import org.mattie.osm.model.Utils;
 
 /**
@@ -100,8 +100,8 @@ public class ShowManager {
 
         // Timeline cues
         showViewModel.setCueViewModels(show.getCues().stream()
-                .filter(cue -> cue.getTrigger() == Cue.TriggerType.AUTO_START
-                || cue.getTrigger() == Cue.TriggerType.MANUAL)
+                .filter(cue -> cue.getTrigger() == TriggerType.AUTO_START
+                || cue.getTrigger() == TriggerType.MANUAL)
                 .map(cue -> {
                     log.info("transform(): cue={}", cue);
                     return CueViewModel.createCueViewModel(cue);
@@ -115,7 +115,7 @@ public class ShowManager {
         // TODO: Put hot key cues in the main cue list and have show view model skip hot key and time type cues
         // Hot Key cues
         List<CueViewModel> hotKeyCueViewModels = show.getCues().stream()
-                .filter(cue -> cue.getTrigger() == Cue.TriggerType.HOT_KEY)
+                .filter(cue -> cue.getTrigger() == TriggerType.HOT_KEY)
                 .map(cue -> CueViewModel.createCueViewModel(cue))
                 .collect(Collectors.toList());
         hotKeyCueViewModels.stream()

@@ -20,19 +20,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public abstract class Cue {
 
-    public static enum TriggerType {
-        MANUAL,
-        AUTO_START,
-        TIME_OF_DAY,
-        HOT_KEY
-    }
-
-    public static enum NextCueAction {
-        STOP,
-        FADE,
-        CONTINUE
-    }
-
     private String id;
 
     private String name;
@@ -44,8 +31,6 @@ public abstract class Cue {
     private Map<String, Object> triggerProps = new HashMap<>();
 
     private Duration delay = Duration.ZERO;
-
-    private NextCueAction nextCueAction = NextCueAction.CONTINUE;
 
     public Cue setTriggerProp(String key, Object value) {
         triggerProps.put(key, value);

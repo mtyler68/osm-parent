@@ -2,27 +2,16 @@
 name: "Three Song Playlist With Crossfade"
 cues:
 - !<MediaPlaylistCue>
-  id: "f1beda33-59ca-4b26-a785-097068ea0b4f"
+  id: "b114886f-b7c0-4a35-a370-4d9d64fa4bb7"
   name: "Q1"
   desc: "PLAYLIST"
   trigger: "AUTO_START"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   volume: 1.0
   crossfade: 5.000000000
   resources:
-  - name: null
-    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Welcome\
-      \ to the Jungle.mp3"
-    volume: 0.5
-    fadeIn: 0.0
-    fadeOut: 0.0
-    startAt: 0.0
-    stopAt: 20.000000000
-    type: "AUDIO_ONLY"
-    showVideo: false
-  - name: null
+  - name: "Stranded In the Jungle"
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Stranded\
       \ In the Jungle.mp3"
     volume: 0.6
@@ -32,10 +21,20 @@ cues:
     stopAt: 20.000000000
     type: "AUDIO_ONLY"
     showVideo: false
-  - name: null
+  - name: "Run Through the Jungle"
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\13 Run\
       \ Through the Jungle.mp3"
     volume: 0.4
+    fadeIn: 0.0
+    fadeOut: 0.0
+    startAt: 0.0
+    stopAt: 20.000000000
+    type: "AUDIO_ONLY"
+    showVideo: false
+  - name: "Welcome to the Jungle"
+    file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Welcome\
+      \ to the Jungle.mp3"
+    volume: 0.5
     fadeIn: 0.0
     fadeOut: 0.0
     startAt: 0.0

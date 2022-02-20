@@ -2,13 +2,12 @@
 name: "One Video Media Cue"
 cues:
 - !<MediaCue>
-  id: "be0fc358-b63a-431e-8483-c71698f8077f"
+  id: "53ff311f-ac8e-4edd-bb49-c277a11ac33b"
   name: "Q1"
   desc: "Contemporary 2021"
   trigger: "MANUAL"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   media:
     name: null
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\Holiday\

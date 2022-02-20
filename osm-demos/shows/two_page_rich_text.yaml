@@ -2,13 +2,12 @@
 name: "Two Page Rich Text"
 cues:
 - !<RichTextCue>
-  id: "d08a7ad2-7f92-4e8f-b04d-a4182e48971e"
+  id: "228a5375-54f3-4084-a533-1ad6156b87ab"
   name: "Q1"
-  desc: "RICH TEXT"
+  desc: "Moana Script"
   trigger: "MANUAL"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   pages:
   - "<!DOCTYPE html>\n<html>\n  <head>\n    <title>Moana pg. 1</title>\n    <meta\
     \ charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width,\

@@ -2,13 +2,12 @@
 name: "One Media Cue"
 cues:
 - !<MediaCue>
-  id: "ba1fe1e9-0d4f-4fc0-a158-b2f8e56854b0"
+  id: "da792d1e-2a5a-4e3f-916c-749746bd966a"
   name: "Q1"
   desc: "Brazil Samba"
   trigger: "MANUAL"
   triggerProps: {}
   delay: 0.0
-  nextCueAction: "CONTINUE"
   media:
     name: "Brazil Samba"
     file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\bensound-brazilsamba.mp3"
