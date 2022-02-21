@@ -1,5 +1,6 @@
 package org.mattie.osm.app.model;
 
+import javafx.animation.Animation;
 import javafx.animation.ParallelTransition;
 import org.mattie.osm.model.ParallelCue;
 
@@ -21,7 +22,7 @@ public class ParallelCueViewModel extends GroupCueViewModel<ParallelCue> {
         getChildren().stream()
                 .map(vm -> {
                     vm.buildAnimation();
-                    return vm.getAnimation();
+                    return (Animation) vm.getAnimation().get();
                 })
                 .forEach(ani -> animation.getChildren().add(ani));
         animation.setOnFinished((evt) -> finished());

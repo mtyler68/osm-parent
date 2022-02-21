@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-
 <VBox prefHeight="842.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.PlayerView">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -74,6 +73,7 @@
                         <TableColumn fx:id="stateTableColumn" prefWidth="49.99993896484375" text="State" />
                         <TableColumn fx:id="triggerTableColumn" prefWidth="58.00006103515625" text="Trigger" />
                         <TableColumn minWidth="0.0" prefWidth="90.66668701171875" text="File/Info" />
+                        <TableColumn fx:id="currentTimeTableColumn" prefWidth="75.0" text="Current" />
                         <TableColumn fx:id="lengthTableColumn" prefWidth="59.999969482421875" text="Length" />
                         <TableColumn fx:id="delayTableColumn" prefWidth="75.0" text="Delay" />
                         <TableColumn prefWidth="75.0" text="Device" />

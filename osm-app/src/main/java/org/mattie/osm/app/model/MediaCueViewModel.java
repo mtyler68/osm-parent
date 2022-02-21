@@ -118,6 +118,13 @@ public class MediaCueViewModel extends CueViewModel<MediaCue> {
             }
         });
 
+        getMediaPlayer().currentTimeProperty().addListener((ov, oldVal, newVal) -> {
+            java.time.Duration d = java.time.Duration.ofMillis((int) newVal.toMillis());
+            String durString = String.format("%02d:%02d:%02d.%d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart() / 100);
+            //log.info("{}: currentTime={}: {}", getName(), durString, MediaCueViewModel.this);
+            setCurrentTime(durString);
+        });
+
     }
 
     @Override

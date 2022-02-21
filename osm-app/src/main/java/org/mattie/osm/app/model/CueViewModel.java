@@ -1,10 +1,14 @@
 package org.mattie.osm.app.model;
 
+import java.util.Optional;
 import java.util.ServiceLoader;
 import javafx.animation.Animation;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyStringProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,9 +59,9 @@ public abstract class CueViewModel<C extends Cue> {
 
     private ObjectProperty<State> state = new SimpleObjectProperty<>(State.READY);
 
-    @Setter
-    @Getter
-    private Animation animation;
+    private ObjectProperty<Animation> animation = new SimpleObjectProperty<>();
+
+    private StringProperty currentTime = new SimpleStringProperty("00:00:00.0");
 
     @Setter
     @Getter
@@ -91,6 +95,45 @@ public abstract class CueViewModel<C extends Cue> {
         return onFinished.get();
     }
 
+    public ReadOnlyObjectProperty<Animation> animationProperty() {
+        return animation;
+    }
+
+    public void setAnimation(Animation newAnimation) {
+        animation.set(newAnimation);
+    }
+
+    public Optional<Animation> getAnimation() {
+        return Optional.ofNullable(animation.get());
+    }
+
+    /**
+     * Calculated duration for this cue. If an animation has been set, duration
+     * is derived from the animation. Otherwise, it's either indefinite or
+     * overridden by descendant classes.
+     *
+     * @return
+     */
+    public Duration getDuration() {
+        Optional<Animation> value = getAnimation();
+        if (value.isPresent()) {
+            return value.get().getTotalDuration();
+        }
+        return Duration.UNKNOWN;
+    }
+
+    public ReadOnlyStringProperty currentTimeProperty() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(String newCurrentTime) {
+        this.currentTime.set(newCurrentTime);
+    }
+
+    public String getCurrentTime() {
+        return currentTime.get();
+    }
+
     public void resetCue() {
         setState(State.READY);
     }
@@ -98,46 +141,55 @@ public abstract class CueViewModel<C extends Cue> {
     public void play() {
         log.info("{}: play(): {}", getName(), this);
 
-        switch (getAnimation().getStatus()) {
-            case STOPPED:
-                setState(State.PLAYING);
-                animation.playFromStart();
-                break;
+        getAnimation().ifPresent(ani -> {
+            switch (ani.getStatus()) {
+                case STOPPED:
+                    setState(State.PLAYING);
+                    ani.playFromStart();
+                    break;
 
-            case PAUSED:
-                animation.play();
-                setState(State.PLAYING);
-                break;
-        }
+                case PAUSED:
+                    ani.play();
+                    setState(State.PLAYING);
+                    break;
+            }
+        });
+
     }
 
     public void pause() {
         log.info("{}: pause(): {}", getName(), this);
 
-        switch (getAnimation().getStatus()) {
-            case PAUSED:
-                // No need to pause again
-                break;
-            case STOPPED:
-                // Why pause when stopped?
-                break;
-            case RUNNING:
-                animation.pause();
-                setState(State.PAUSED);
-                break;
-        }
+        getAnimation().ifPresent(ani -> {
+            switch (ani.getStatus()) {
+                case PAUSED:
+                    // No need to pause again
+                    break;
+                case STOPPED:
+                    // Why pause when stopped?
+                    break;
+                case RUNNING:
+                    ani.pause();
+                    setState(State.PAUSED);
+                    break;
+            }
+        });
+
     }
 
     public void stop() {
         log.info("{}: stop(): {}", getName(), this);
 
-        switch (getAnimation().getStatus()) {
-            case PAUSED:
-            case RUNNING:
-                getAnimation().stop();
-                setState(State.STOPPED);
-                break;
-        }
+        getAnimation().ifPresent(ani -> {
+            switch (ani.getStatus()) {
+                case PAUSED:
+                case RUNNING:
+                    ani.stop();
+                    setState(State.STOPPED);
+                    break;
+            }
+        });
+
     }
 
     /**

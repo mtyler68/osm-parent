@@ -20,7 +20,7 @@ public class SequentialCueViewModel extends GroupCueViewModel<SequentialCue> {
         getChildren().stream()
                 .map(vm -> {
                     vm.buildAnimation();
-                    Animation ani = vm.getAnimation();
+                    Animation ani = (Animation) vm.getAnimation().get();
                     if (vm.getDelay().greaterThan(Duration.ZERO)) {
                         ani.setDelay(Duration.ZERO);
                         return Arrays.asList(new PauseTransition(vm.getDelay()), ani);

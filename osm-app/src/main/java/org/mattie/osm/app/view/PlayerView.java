@@ -55,6 +55,8 @@ public class PlayerView implements Initializable {
 
     public TableColumn lengthTableColumn;
 
+    public TableColumn currentTimeTableColumn;
+
     public TableView hotKeyTable;
 
     public TableColumn hotKeyColumn;
@@ -89,6 +91,7 @@ public class PlayerView implements Initializable {
         triggerTableColumn.setCellValueFactory(new PropertyValueFactory("trigger"));
         typeTableColumn.setCellValueFactory(new PropertyValueFactory("simpleType"));
         delayTableColumn.setCellValueFactory(new PropertyValueFactory("delay"));
+        currentTimeTableColumn.setCellValueFactory(new PropertyValueFactory("currentTime"));
 
         hotKeyColumn.setCellValueFactory(new PropertyValueFactory("hotKey"));
         hotKeyDescColumn.setCellValueFactory(new PropertyValueFactory("desc"));

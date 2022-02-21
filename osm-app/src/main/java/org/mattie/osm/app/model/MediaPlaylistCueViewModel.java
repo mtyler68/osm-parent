@@ -133,6 +133,10 @@ public class MediaPlaylistCueViewModel extends CueViewModel<MediaPlaylistCue> {
                     -> log.info("{}: [end media]: {}", getName(), mediaViewModel.getSource()));
 
             startPos = startPos.add(mediaViewModel.getMediaPlayer().getTotalDuration());
+
+            // End keyframe of media to get timeline length correct for last media
+            timeline.getKeyFrames().add(new KeyFrame(startPos));
+
             if (getCrossfade().greaterThan(Duration.ZERO)) {
                 startPos = startPos.subtract(getCrossfade());
             }
@@ -142,6 +146,12 @@ public class MediaPlaylistCueViewModel extends CueViewModel<MediaPlaylistCue> {
 
         // Finish configuration of view model
         timeline.setOnFinished((evt) -> finished());
+        timeline.currentTimeProperty().addListener((ov, oldVal, newVal) -> {
+            java.time.Duration d = java.time.Duration.ofMillis((int) newVal.toMillis());
+            String durString = String.format("%02d:%02d:%02d.%d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart() / 100);
+            setCurrentTime(durString);
+        });
+
         setAnimation(timeline);;
 
     }
