@@ -23,9 +23,9 @@ import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
 import org.controlsfx.control.action.ActionUtils;
 import org.mattie.osm.app.App;
-import org.mattie.osm.app.model.CueViewModel;
-import org.mattie.osm.app.model.GroupCueViewModel;
-import org.mattie.osm.app.model.ShowViewModel;
+import org.mattie.osm.app.viewmodel.CueViewModel;
+import org.mattie.osm.app.viewmodel.GroupCueViewModel;
+import org.mattie.osm.app.viewmodel.ShowViewModel;
 
 /**
  * FXML Controller class

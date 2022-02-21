@@ -1,0 +1,6 @@
+org.mattie.osm.app.viewmodel.MediaCueViewModel
+org.mattie.osm.app.viewmodel.MediaPlaylistCueViewModel
+org.mattie.osm.app.viewmodel.NoteCueViewModel
+org.mattie.osm.app.viewmodel.RichTextCueViewModel
+org.mattie.osm.app.viewmodel.ParallelCueViewModel
+org.mattie.osm.app.viewmodel.SequentialCueViewModel
