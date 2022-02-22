@@ -2,7 +2,7 @@
 name: "One Media Cue"
 cues:
 - !<MediaCue>
-  id: "da792d1e-2a5a-4e3f-916c-749746bd966a"
+  id: "7aac8c6c-489c-4368-9c75-8a454cef0764"
   name: "Q1"
   desc: "Brazil Samba"
   trigger: "MANUAL"

@@ -2,7 +2,7 @@
 name: "Three Song Playlist With Crossfade"
 cues:
 - !<MediaPlaylistCue>
-  id: "b114886f-b7c0-4a35-a370-4d9d64fa4bb7"
+  id: "73bcb526-d318-4ecf-9200-bc45de3ecf3a"
   name: "Q1"
   desc: "PLAYLIST"
   trigger: "AUTO_START"

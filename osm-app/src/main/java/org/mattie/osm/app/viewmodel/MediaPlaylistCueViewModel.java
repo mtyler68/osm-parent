@@ -35,9 +35,7 @@ public class MediaPlaylistCueViewModel extends CueViewModel<MediaPlaylistCue> {
     @Override
     public void play() {
         log.info("{}: play(): {}", getName(), this);
-        getMediaViewModels().stream()
-                .filter(mvm -> mvm.getMediaPlayer().getStatus() == MediaPlayer.Status.PAUSED)
-                .forEach(mvm -> mvm.getMediaPlayer().play());
+        embeddedPlay();
 
         super.play();
     }
@@ -45,20 +43,43 @@ public class MediaPlaylistCueViewModel extends CueViewModel<MediaPlaylistCue> {
     @Override
     public void pause() {
         log.info("{}: pause(): {}", getName(), this);
+        embeddedPause();
+        super.pause();
+    }
+
+    @Override
+    public void embeddedPause() {
+        log.info("{}: embeddedPause(): {}", getName(), this);
         mediaViewModels.stream()
                 .filter(mvm -> mvm.getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING)
                 .forEach(mvm -> mvm.getMediaPlayer().pause());
-        super.pause();
+        super.embeddedPause();
+    }
+
+    @Override
+    public void embeddedPlay() {
+        log.info("{}: embeddedPlay(): {}", getName(), this);
+        getMediaViewModels().stream()
+                .filter(mvm -> mvm.getMediaPlayer().getStatus() == MediaPlayer.Status.PAUSED)
+                .forEach(mvm -> mvm.getMediaPlayer().play());
+        super.embeddedPlay();
     }
 
     @Override
     public void stop() {
         log.info("{}: stop(): {}", getName(), this);
+        embeddedStop();
+        super.stop();
+    }
+
+    @Override
+    public void embeddedStop() {
+        log.info("{}: embeddedStop(): {}", getName(), this);
         getMediaViewModels().stream()
                 .filter(mvm -> mvm.getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING
                 || mvm.getMediaPlayer().getStatus() == MediaPlayer.Status.PAUSED)
                 .forEach(mvm -> mvm.getMediaPlayer().stop());
-        super.stop();
+        super.embeddedStop();
     }
 
     @Override
@@ -151,6 +172,8 @@ public class MediaPlaylistCueViewModel extends CueViewModel<MediaPlaylistCue> {
             String durString = String.format("%02d:%02d:%02d.%d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart() / 100);
             setCurrentTime(durString);
         });
+
+        setDuration(formatDuration(timeline.getTotalDuration()));
 
         setAnimation(timeline);;
 

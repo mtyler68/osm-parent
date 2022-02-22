@@ -29,8 +29,11 @@ public class SequentialCueViewModel extends GroupCueViewModel<SequentialCue> {
                 })
                 .forEach(ani -> animation.getChildren().addAll(ani));
         animation.setOnFinished((evt) -> finished());
+        animation.currentTimeProperty().addListener((ov, oldVal, newVal) -> setCurrentTime(formatDuration(newVal)));
+        setDuration(formatDuration(animation.getTotalDuration()));
 
         setAnimation(animation);
+
     }
 
     @Override

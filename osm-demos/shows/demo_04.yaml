@@ -2,7 +2,7 @@
 name: "2022 Spring Recital"
 cues:
 - !<NoteCue>
-  id: "9d3ee5c5-a733-4c5a-ac0e-a40b25b304e4"
+  id: "6a8d246a-6d72-42c0-8188-4e1da7061768"
   name: "Q1"
   desc: "Start the show"
   trigger: "AUTO_START"
@@ -10,7 +10,7 @@ cues:
   delay: 5.000000000
   text: "Start show note with short delay"
 - !<SequentialCue>
-  id: "46ad9640-14a5-42df-af1a-aad25debabcc"
+  id: "756c704b-29ae-4991-8ada-8b0fdba1f07a"
   name: "Q2"
   desc: "SequentialCue"
   trigger: "AUTO_START"
@@ -18,7 +18,7 @@ cues:
   delay: 0.0
   cues:
   - !<NoteCue>
-    id: "1bb7face-832f-4f15-bb8f-26bd4d99080d"
+    id: "6b919b57-82a7-402e-aedf-4e25f362b7c2"
     name: "Q2.1"
     desc: "sNote1"
     trigger: "MANUAL"
@@ -26,7 +26,7 @@ cues:
     delay: 0.0
     text: "sNote1"
   - !<NoteCue>
-    id: "b327c572-1bf9-48ac-9438-849b8865b05d"
+    id: "b602d147-9689-4eae-aa72-04488f486922"
     name: "Q2.2"
     desc: "sNote2"
     trigger: "MANUAL"
@@ -34,7 +34,7 @@ cues:
     delay: 3.000000000
     text: "sNote2"
   - !<NoteCue>
-    id: "add97584-f394-4066-8835-ad824122e3cc"
+    id: "0d445121-c0b8-4e90-a0f3-046f0282d7a0"
     name: "Q2.3"
     desc: "sNote3"
     trigger: "MANUAL"
@@ -42,7 +42,7 @@ cues:
     delay: 3.000000000
     text: "sNote3"
 - !<MediaPlaylistCue>
-  id: "87e69e30-c0b5-49dd-9c09-4eea05d370d1"
+  id: "4dcee693-3a87-4806-8602-7b247579d3ed"
   name: "Q3"
   desc: "OPEN HOUSE PLAYLIST"
   trigger: "AUTO_START"
@@ -82,7 +82,7 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<MediaCue>
-  id: "72e94fd4-fb75-46c3-bbec-f9063b8d9f95"
+  id: "6241b2c6-6763-469d-bb69-7a5a4d1aec8f"
   name: "Q4"
   desc: "Brazil Samba"
   trigger: "MANUAL"
@@ -99,7 +99,7 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<MediaCue>
-  id: "ac0e26ce-146f-4a31-a7fb-ccf0becb3810"
+  id: "f2a80631-3439-4d5c-8073-d9247aae95a9"
   name: "Q5"
   desc: "Bungle In the Jungle"
   trigger: "AUTO_START"
@@ -117,7 +117,7 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<NoteCue>
-  id: "6951bc47-f49e-4ad0-a8f1-273c211a396d"
+  id: "b84784ac-be37-410f-a927-ced9d2eec937"
   name: "Q6"
   desc: "DIM HOUSE LIGHTS"
   trigger: "AUTO_START"
@@ -125,7 +125,7 @@ cues:
   delay: 7.000000000
   text: "Manually DIM house lights"
 - !<ParallelCue>
-  id: "1cdc2e84-5e56-45d3-aa35-428323c0d034"
+  id: "562ff97c-392b-4832-a73a-3ba635db1ffd"
   name: "Q7"
   desc: "MOANA ACT 1"
   trigger: "AUTO_START"
@@ -133,7 +133,7 @@ cues:
   delay: 0.0
   cues:
   - !<NoteCue>
-    id: "46b2f2d4-e81f-48f7-8f3a-e3c6e7eda7fc"
+    id: "bda20e31-e346-4475-8863-3e5e337c6d1d"
     name: "Q7.1"
     desc: "WITHOUT DELAY"
     trigger: "AUTO_START"
@@ -141,7 +141,7 @@ cues:
     delay: 0.0
     text: "No delay note"
   - !<MediaCue>
-    id: "ef136e28-2fb0-4089-bbb9-b738b182e048"
+    id: "f27d302f-a4de-4890-a687-b6453556d62b"
     name: "Q7.2"
     desc: "The Lion Sleeps Tonight"
     trigger: "AUTO_START"
@@ -159,7 +159,7 @@ cues:
       type: "AUDIO_ONLY"
       showVideo: false
   - !<NoteCue>
-    id: "4f3b7201-0f43-4d2f-85ab-503f5c4ce1a8"
+    id: "c6732512-a59d-45e1-b78c-92d85dab20dc"
     name: "Q7.3"
     desc: "WIRELESS MICS - ON"
     trigger: "AUTO_START"
@@ -167,7 +167,7 @@ cues:
     delay: 10.000000000
     text: "Turn on wireless microphones"
 - !<MediaCue>
-  id: "2c3e5f59-c7c4-4093-9e02-a12f9d3cfda6"
+  id: "daba4f8b-0577-4629-8529-20134b553143"
   name: "Q8"
   desc: "Welcome to the Jungle"
   trigger: "AUTO_START"

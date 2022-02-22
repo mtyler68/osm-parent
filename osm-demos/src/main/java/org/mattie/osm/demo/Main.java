@@ -54,6 +54,7 @@ public class Main {
         generateDemo(hotKeyMedia(), "hot_key_media");
         generateDemo(twoPageRichText(), "two_page_rich_text");
         generateDemo(oneVideoMediaCue(), "one_video_media_cue");
+        generateDemo(springRecital2022(), "2022_spring_recital");
     }
 
     private static void generateDemo(Show show, String title) throws IOException {
@@ -678,6 +679,30 @@ public class Main {
                 .setVolume(1.0);
         MediaCue cue = mediaCue("Contemporary 2021", resource);
         show.add(cue);
+
+        return show;
+    }
+
+    private static Show springRecital2022() {
+        Show show = new Show().setName("2022 Spring Recital");
+        Cue cue = null;
+
+        ParallelCue openHouseCue = Cues.parallelCue("OPEN HOUSE");
+        show.add(openHouseCue);
+
+        newSubIndex();
+        cue = mediaPlaylistCue("OPEN HOUSE MUSIC", Duration.ZERO,
+                Constants.resourceBrazilSamba(),
+                Constants.resourceRunThroughTheJungle(),
+                Constants.resourceStrandedInTheJungle(),
+                Constants.resourceWelcomeToTheJungle());
+        openHouseCue.add(cue);
+
+        nextIndex();
+        cue = noteCue("OPEN HOUSE BILLBOARDS", "Create billboard cue")
+                .setDelay(Duration.ofSeconds(10));
+        openHouseCue.add(cue);
+        popSubIndex();
 
         return show;
     }

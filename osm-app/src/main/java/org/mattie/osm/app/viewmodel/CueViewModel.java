@@ -63,6 +63,8 @@ public abstract class CueViewModel<C extends Cue> {
 
     private StringProperty currentTime = new SimpleStringProperty("00:00:00.0");
 
+    private StringProperty duration = new SimpleStringProperty("00:00:00.0");
+
     @Setter
     @Getter
     private String hotKey;
@@ -107,19 +109,16 @@ public abstract class CueViewModel<C extends Cue> {
         return Optional.ofNullable(animation.get());
     }
 
-    /**
-     * Calculated duration for this cue. If an animation has been set, duration
-     * is derived from the animation. Otherwise, it's either indefinite or
-     * overridden by descendant classes.
-     *
-     * @return
-     */
-    public Duration getDuration() {
-        Optional<Animation> value = getAnimation();
-        if (value.isPresent()) {
-            return value.get().getTotalDuration();
-        }
-        return Duration.UNKNOWN;
+    public ReadOnlyStringProperty durationProperty() {
+        return duration;
+    }
+
+    public void setDuration(String newDuration) {
+        duration.set(newDuration);
+    }
+
+    public String getDuration() {
+        return duration.get();
     }
 
     public ReadOnlyStringProperty currentTimeProperty() {
@@ -177,6 +176,21 @@ public abstract class CueViewModel<C extends Cue> {
 
     }
 
+    /**
+     * Called by GroupCueViewModel on children.
+     */
+    public void embeddedPause() {
+        log.info("{}: embeddedPause(): {}", getName(), this);
+    }
+
+    public void embeddedPlay() {
+        log.info("{}: embeddedPlay(): {}", getName(), this);
+    }
+
+    public void embeddedStop() {
+        log.info("{}: embeddedStop(): {}", getName(), this);
+    }
+
     public void stop() {
         log.info("{}: stop(): {}", getName(), this);
 
@@ -226,6 +240,11 @@ public abstract class CueViewModel<C extends Cue> {
 
     protected java.time.Duration toTimeDuration(Duration source) {
         return java.time.Duration.ofMillis((long) source.toMillis());
+    }
+
+    protected String formatDuration(Duration source) {
+        java.time.Duration d = java.time.Duration.ofMillis((int) source.toMillis());
+        return String.format("%02d:%02d:%02d.%d", d.toHoursPart(), d.toMinutesPart(), d.toSecondsPart(), d.toMillisPart() / 100);
     }
 
     public void copyFrom(C cue) {

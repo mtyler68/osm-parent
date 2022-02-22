@@ -2,7 +2,7 @@
 name: "One Note with Delay"
 cues:
 - !<NoteCue>
-  id: "51527845-bf53-459d-8fd6-96ff836bfbc7"
+  id: "8a2b1e42-dcf3-4d20-937b-885b2f152fe2"
   name: "Q1"
   desc: "DELAYED NOTE"
   trigger: "AUTO_START"

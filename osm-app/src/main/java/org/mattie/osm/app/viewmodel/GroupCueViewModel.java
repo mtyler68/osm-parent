@@ -6,12 +6,14 @@ import java.util.stream.Collectors;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.mattie.osm.model.GroupCue;
 
 /**
  *
  * @author Matthew Tyler
  */
+@Slf4j
 @ToString(callSuper = true)
 public abstract class GroupCueViewModel<C extends GroupCue> extends CueViewModel<C> {
 
@@ -35,5 +37,46 @@ public abstract class GroupCueViewModel<C extends GroupCue> extends CueViewModel
                 .forEach(cvm -> cvm.resetCue());
     }
 
-    // TODO: implement stop, pause, and play for children
+    @Override
+    public void pause() {
+        embeddedPause();
+        super.pause();
+    }
+
+    @Override
+    public void play() {
+        embeddedPlay();
+        super.play();
+    }
+
+    @Override
+    public void stop() {
+        embeddedStop();
+        super.stop();
+    }
+
+    @Override
+    public void embeddedPause() {
+        log.info("{}: embeddedPause(): {}", getName(), this);
+        getChildren().stream()
+                .forEach(c -> c.embeddedPause());
+        super.embeddedPause();
+    }
+
+    @Override
+    public void embeddedPlay() {
+        log.info("{}: embeddedPlay(): {}", getName(), this);
+        getChildren().stream()
+                .forEach(c -> c.embeddedPlay());
+        super.embeddedPlay();
+    }
+
+    @Override
+    public void embeddedStop() {
+        log.info("{}: embeddedStop(): {}", getName(), this);
+        getChildren().stream()
+                .forEach(c -> c.embeddedStop());
+        super.embeddedStop();
+    }
+
 }

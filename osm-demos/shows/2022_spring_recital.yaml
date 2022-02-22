@@ -1,0 +1,68 @@
+---
+name: "2022 Spring Recital"
+cues:
+- !<ParallelCue>
+  id: "a552c60f-03da-43f4-80f9-c7f847bd7088"
+  name: "Q1"
+  desc: "OPEN HOUSE"
+  trigger: "MANUAL"
+  triggerProps: {}
+  delay: 0.0
+  cues:
+  - !<MediaPlaylistCue>
+    id: "c215d258-ba4b-4b42-a661-fe78248639b9"
+    name: "Q1.1"
+    desc: "OPEN HOUSE MUSIC"
+    trigger: "MANUAL"
+    triggerProps: {}
+    delay: 0.0
+    volume: 1.0
+    crossfade: 0.0
+    resources:
+    - name: "Brazil Samba"
+      file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\bensound-brazilsamba.mp3"
+      volume: 1.0
+      fadeIn: 0.0
+      fadeOut: 0.0
+      startAt: 0.0
+      stopAt: 241.000000000
+      type: "AUDIO_ONLY"
+      showVideo: false
+    - name: "Run Through the Jungle"
+      file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\13 Run\
+        \ Through the Jungle.mp3"
+      volume: 1.0
+      fadeIn: 0.0
+      fadeOut: 0.0
+      startAt: 0.0
+      stopAt: 185.000000000
+      type: "AUDIO_ONLY"
+      showVideo: false
+    - name: "Stranded In the Jungle"
+      file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Stranded\
+        \ In the Jungle.mp3"
+      volume: 1.0
+      fadeIn: 0.0
+      fadeOut: 0.0
+      startAt: 0.0
+      stopAt: 185.000000000
+      type: "AUDIO_ONLY"
+      showVideo: false
+    - name: "Welcome to the Jungle"
+      file: "C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\01 Welcome\
+        \ to the Jungle.mp3"
+      volume: 1.0
+      fadeIn: 0.0
+      fadeOut: 0.0
+      startAt: 0.0
+      stopAt: 274.000000000
+      type: "AUDIO_ONLY"
+      showVideo: false
+  - !<NoteCue>
+    id: "073fae38-38a5-4bb4-a820-9dfd5388a5e7"
+    name: "Q1.2"
+    desc: "OPEN HOUSE BILLBOARDS"
+    trigger: "MANUAL"
+    triggerProps: {}
+    delay: 10.000000000
+    text: "Create billboard cue"

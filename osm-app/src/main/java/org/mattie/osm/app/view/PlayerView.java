@@ -93,6 +93,7 @@ public class PlayerView implements Initializable {
         typeTableColumn.setCellValueFactory(new PropertyValueFactory("simpleType"));
         delayTableColumn.setCellValueFactory(new PropertyValueFactory("delay"));
         currentTimeTableColumn.setCellValueFactory(new PropertyValueFactory("currentTime"));
+        lengthTableColumn.setCellValueFactory(new PropertyValueFactory("duration"));
 
         hotKeyColumn.setCellValueFactory(new PropertyValueFactory("hotKey"));
         hotKeyDescColumn.setCellValueFactory(new PropertyValueFactory("desc"));

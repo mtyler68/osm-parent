@@ -2,7 +2,7 @@
 name: "One Sequential Two Notes"
 cues:
 - !<SequentialCue>
-  id: "0bc3911b-5a81-46fb-9564-194cab25f126"
+  id: "1f87341c-94c5-45b3-8981-950a254aacd1"
   name: "Q1"
   desc: "SEQUENCE"
   trigger: "MANUAL"
@@ -10,7 +10,7 @@ cues:
   delay: 0.0
   cues:
   - !<NoteCue>
-    id: "349c071f-cede-4680-b50d-e79bc8299ebb"
+    id: "ca3b5550-0681-4948-a3d0-7aac4c58b19b"
     name: "Q1.1"
     desc: "NOTE 1"
     trigger: "AUTO_START"
@@ -18,7 +18,7 @@ cues:
     delay: 5.000000000
     text: "Note cue for 'note one'"
   - !<NoteCue>
-    id: "4b3f4195-01b9-4c0b-96a5-4e9ae157c359"
+    id: "5e0b386c-2c32-4c3c-9181-b0dcd77529c0"
     name: "Q1.2"
     desc: "NOTE 2"
     trigger: "MANUAL"

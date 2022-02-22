@@ -2,7 +2,7 @@
 name: "Hot Key Media"
 cues:
 - !<MediaCue>
-  id: "d0c65b0d-8a5a-4543-9c78-e06a999c2354"
+  id: "444d328d-5d65-42ae-88c0-8283d0b0d18b"
   name: "Q1"
   desc: "Circus Horn"
   trigger: "HOT_KEY"
@@ -20,7 +20,7 @@ cues:
     type: "AUDIO_ONLY"
     showVideo: false
 - !<MediaCue>
-  id: "14dfac59-9651-49dc-8383-6b75c68a4e35"
+  id: "7ebde2d6-0f75-4e07-9431-cfb1ffa394e8"
   name: "Q2"
   desc: "Waterfall"
   trigger: "HOT_KEY"

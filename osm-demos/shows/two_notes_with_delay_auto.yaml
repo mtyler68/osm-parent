@@ -2,7 +2,7 @@
 name: "Two Notes With Delay Auto"
 cues:
 - !<NoteCue>
-  id: "42b3c5d1-8e52-44e9-852a-ebe74f548f70"
+  id: "44e81ebc-25fc-4cf9-935b-9b7c91055a6e"
   name: "Q1"
   desc: "NOTE 1"
   trigger: "AUTO_START"
@@ -10,7 +10,7 @@ cues:
   delay: 5.000000000
   text: "Note cue for 'note one'"
 - !<NoteCue>
-  id: "6c518b7e-f15d-4d91-8410-227fb3a6196c"
+  id: "fcc4a519-e2fa-44ec-9d2a-64e5759d2e0e"
   name: "Q2"
   desc: "NOTE 2"
   trigger: "AUTO_START"
