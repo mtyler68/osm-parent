@@ -4,6 +4,8 @@ import java.io.File;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -51,6 +53,8 @@ public class MediaCueViewModel extends CueViewModel<MediaCue> {
     @Getter
     @Setter
     private Duration fadeOut;
+
+    private BooleanProperty videoDisplayed = new SimpleBooleanProperty(false);
 
     @Override
     public void play() {
