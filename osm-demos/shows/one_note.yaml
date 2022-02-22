@@ -2,7 +2,7 @@
 name: "One Note"
 cues:
 - !<NoteCue>
-  id: "1e5c1f37-ce3f-4411-971d-d05e9f09f39b"
+  id: "1c7518ab-166f-4629-931b-32e165716956"
   name: "Q1"
   desc: "NOTE"
   trigger: "AUTO_START"

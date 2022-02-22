@@ -2,7 +2,7 @@
 name: "Two Page Rich Text"
 cues:
 - !<RichTextCue>
-  id: "8534f96d-922c-46bd-bedf-cdeb57e6d03f"
+  id: "5906d7fe-8d0e-42bc-b9e5-154697bb5c73"
   name: "Q1"
   desc: "Moana Script"
   trigger: "MANUAL"

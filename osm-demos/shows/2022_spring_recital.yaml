@@ -2,7 +2,7 @@
 name: "2022 Spring Recital"
 cues:
 - !<ParallelCue>
-  id: "a552c60f-03da-43f4-80f9-c7f847bd7088"
+  id: "bac79a9b-3efd-4215-9fee-47f19a0c2a0e"
   name: "Q1"
   desc: "OPEN HOUSE"
   trigger: "MANUAL"
@@ -10,7 +10,7 @@ cues:
   delay: 0.0
   cues:
   - !<MediaPlaylistCue>
-    id: "c215d258-ba4b-4b42-a661-fe78248639b9"
+    id: "7638d65f-b84a-4920-9ee8-39216c284c2e"
     name: "Q1.1"
     desc: "OPEN HOUSE MUSIC"
     trigger: "MANUAL"
@@ -59,7 +59,7 @@ cues:
       type: "AUDIO_ONLY"
       showVideo: false
   - !<NoteCue>
-    id: "073fae38-38a5-4bb4-a820-9dfd5388a5e7"
+    id: "e17cc99f-2e55-4d65-9af3-a898f3a27a02"
     name: "Q1.2"
     desc: "OPEN HOUSE BILLBOARDS"
     trigger: "MANUAL"

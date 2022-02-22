@@ -2,7 +2,7 @@
 name: "One Video Media Cue"
 cues:
 - !<MediaCue>
-  id: "0a800294-2461-429e-887a-9872db348938"
+  id: "1df117ec-00de-48e3-90a0-df55f56101be"
   name: "Q1"
   desc: "Contemporary 2021"
   trigger: "MANUAL"
@@ -17,5 +17,5 @@ cues:
     fadeOut: 5.000000000
     startAt: 0.0
     stopAt: 20.000000000
-    type: "AUDIO_ONLY"
-    showVideo: false
+    type: "VIDEO_ONLY"
+    showVideo: true

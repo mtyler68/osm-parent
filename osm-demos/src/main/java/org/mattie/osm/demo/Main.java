@@ -673,6 +673,8 @@ public class Main {
 
         MediaResource resource = new MediaResource()
                 .setFile("C:\\Users\\Matt\\Documents\\CAD\\2022 Spring Recital\\cue_media\\Holiday 2021 - Contemporary.mp4")
+                .setShowVideo(true)
+                .setType(MediaResource.MediaType.VIDEO_ONLY)
                 .setStopAt(Duration.ofSeconds(20))
                 .setFadeIn(Duration.ofSeconds(5))
                 .setFadeOut(Duration.ofSeconds(5))
