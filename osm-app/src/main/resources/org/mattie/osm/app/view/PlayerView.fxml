@@ -104,14 +104,14 @@
                            <children>
                               <AnchorPane VBox.vgrow="ALWAYS">
                                  <children>
-                                    <TitledPane fx:id="titledPane" alignment="CENTER" animated="false" collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Script View" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TitledPane fx:id="richTextTitledPane" alignment="CENTER" animated="false" collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Script View" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <content>
-                                          <WebView fx:id="richText" prefHeight="200.0" prefWidth="200.0" />
+                                          <WebView fx:id="richTextWebView" prefHeight="200.0" prefWidth="200.0" />
                                        </content>
                                     </TitledPane>
                                  </children>
                               </AnchorPane>
-                              <Pagination fx:id="pagination" maxPageIndicatorCount="5" minHeight="-Infinity" minWidth="-Infinity" pageCount="1" VBox.vgrow="NEVER" />
+                              <Pagination fx:id="richTextPagination" maxPageIndicatorCount="5" minHeight="-Infinity" minWidth="-Infinity" pageCount="1" VBox.vgrow="NEVER" />
                            </children>
                         </VBox>
                         <TableView fx:id="hotKeyTable" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" SplitPane.resizableWithParent="false">

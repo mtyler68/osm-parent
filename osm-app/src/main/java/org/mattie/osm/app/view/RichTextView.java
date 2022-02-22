@@ -9,7 +9,9 @@ import javafx.scene.control.Pagination;
 import javafx.scene.control.TitledPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
@@ -20,18 +22,19 @@ import org.controlsfx.control.action.ActionProxy;
  * @author Matthew Tyler
  */
 @Slf4j
+@RequiredArgsConstructor
 public class RichTextView implements Initializable {
 
-    public WebView richText;
+    private final TitledPane titledPane;
 
-    public Pagination pagination;
+    private final WebView richText;
 
-    public TitledPane titledPane;
+    private final Pagination pagination;
 
-    @Getter
+    @Getter(AccessLevel.PRIVATE)
     private WebEngine webEngine;
 
-    @Getter
+    @Getter(AccessLevel.PRIVATE)
     private List<String> richTextPages = new ArrayList<>();
 
     /**
@@ -41,8 +44,8 @@ public class RichTextView implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         webEngine = richText.getEngine();
 
-        pagination.currentPageIndexProperty().addListener((ov, t, t1) -> {
-            displayRichTextPage(ov.getValue().intValue());
+        pagination.currentPageIndexProperty().addListener((ov, oldVal, newVal) -> {
+            displayRichTextPage(newVal.intValue());
         });
 
         // Action configuration

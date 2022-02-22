@@ -1,7 +1,6 @@
 package org.mattie.osm.app.view;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -15,7 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -70,17 +68,15 @@ public class PlayerView implements Initializable {
 
     public Button pauseButton;
 
-    public WebView richText;
+    // Rich text controls
+    public WebView richTextWebView;
 
-    public Pagination pagination;
+    public Pagination richTextPagination;
 
-    public TitledPane titledPane;
-
-    @Getter
-    private WebEngine webEngine;
+    public TitledPane richTextTitledPane;
 
     @Getter
-    private List<String> richTextPages = new ArrayList<>();
+    private RichTextView richTextView;
 
     /**
      * Initializes the controller class.
@@ -101,11 +97,9 @@ public class PlayerView implements Initializable {
         hotKeyColumn.setCellValueFactory(new PropertyValueFactory("hotKey"));
         hotKeyDescColumn.setCellValueFactory(new PropertyValueFactory("desc"));
 
-        webEngine = richText.getEngine();
-
-        pagination.currentPageIndexProperty().addListener((ov, t, t1) -> {
-            displayRichTextPage(ov.getValue().intValue());
-        });
+        // Rich Text View
+        richTextView = new RichTextView(richTextTitledPane, richTextWebView, richTextPagination);
+        richTextView.initialize(url, rb);
 
         // Action configuration
         ActionMap.register(this);
@@ -165,10 +159,7 @@ public class PlayerView implements Initializable {
     public void clearDisplays() {
         cueMessageField.setText("");
 
-        getWebEngine().loadContent("");
-        titledPane.setText("Script View");
-        pagination.setPageCount(1);
-
+        getRichTextView().clear();
     }
 
     public void setCueNote(String text) {
@@ -224,50 +215,4 @@ public class PlayerView implements Initializable {
     public void toggleFullScreen() {
         App.toggleFullScreen();
     }
-
-    public void setRichTextPages(List<String> richTextPages) {
-        this.richTextPages = richTextPages;
-        getWebEngine().loadContent("");
-        titledPane.setText("Script View");
-
-        pagination.setPageCount(richTextPages.size() > 0 ? richTextPages.size() : 1);
-        pagination.setCurrentPageIndex(0);
-
-        if (!richTextPages.isEmpty()) {
-            displayRichTextPage(0);
-        }
-    }
-
-    public void setRichTextPage(int index) {
-        pagination.setCurrentPageIndex(index);
-    }
-
-    private void displayRichTextPage(int index) {
-        setRichTextContent(richTextPages.get(index));
-    }
-
-    public void setRichTextContent(String text) {
-        getWebEngine().loadContent(text);
-        getWebEngine().titleProperty().addListener((t) -> {
-            log.info("setRichTextContent(): title={}: {}", getWebEngine().getTitle(), PlayerView.this);
-            titledPane.setText(getWebEngine().getTitle());
-        });
-    }
-
-    @ActionProxy(id = "PAGE_DOWN", text = "Next Page")
-    public void nextRichTextPage() {
-        int index = pagination.getCurrentPageIndex() + 1;
-        if (index < richTextPages.size()) {
-            setRichTextPage(index);
-        }
-    }
-
-    @ActionProxy(id = "PAGE_UP", text = "Prev Page")
-    public void prevRichTextPage() {
-        int index = pagination.getCurrentPageIndex() - 1;
-        if (index >= 0) {
-            setRichTextPage(index);
-        }
-    }
-
 }

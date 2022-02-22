@@ -24,7 +24,7 @@ public class RichTextCueViewModel extends CueViewModel<RichTextCue> {
 
     public void displayPage(int index) {
         log.info("{}: displayPage(): index={}: {}", getName(), index, this);
-        App.getShowManager().getPlayerView().setRichTextPage(index);
+        App.getShowManager().getPlayerView().getRichTextView().setRichTextPage(index);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class RichTextCueViewModel extends CueViewModel<RichTextCue> {
 
         timeline.getKeyFrames().add(new KeyFrame(Duration.ZERO, (evt) -> {
             log.info("{}: [display rich text]: {}", getName(), this);
-            App.getShowManager().getPlayerView().setRichTextPages(pages);
+            App.getShowManager().getPlayerView().getRichTextView().setRichTextPages(pages);
             displayPage(0);
         }));
 
