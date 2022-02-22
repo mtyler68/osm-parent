@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -63,16 +64,20 @@ public class PlayerView implements Initializable {
 
     public TableColumn hotKeyDescColumn;
 
-    public WebView richTextView;
-
-    public Label richTextTitleLabel;
-
-    public Pagination richTextPagination;
-
     public Button playButton;
 
+    public Button stopButton;
+
+    public Button pauseButton;
+
+    public WebView richText;
+
+    public Pagination pagination;
+
+    public TitledPane titledPane;
+
     @Getter
-    private WebEngine richTextWebEngine;
+    private WebEngine webEngine;
 
     @Getter
     private List<String> richTextPages = new ArrayList<>();
@@ -96,22 +101,41 @@ public class PlayerView implements Initializable {
         hotKeyColumn.setCellValueFactory(new PropertyValueFactory("hotKey"));
         hotKeyDescColumn.setCellValueFactory(new PropertyValueFactory("desc"));
 
-        richTextWebEngine = richTextView.getEngine();
+        webEngine = richText.getEngine();
 
-        richTextPagination.currentPageIndexProperty().addListener((ov, t, t1) -> {
+        pagination.currentPageIndexProperty().addListener((ov, t, t1) -> {
             displayRichTextPage(ov.getValue().intValue());
         });
 
         // Action configuration
         ActionMap.register(this);
-        Action playAction = ActionMap.action("play");
+        Action playAction = ActionMap.action("PLAY");
         ActionUtils.configureButton(playAction, playButton);
+
+        Action stopAction = ActionMap.action("STOP");
+        ActionUtils.configureButton(stopAction, stopButton);
+
+        Action pauseAction = ActionMap.action("PAUSE");
+        ActionUtils.configureButton(pauseAction, pauseButton);
+
     }
 
-    @ActionProxy(id = "play", text = "Play")
+    @ActionProxy(id = "PLAY", text = "Play")
     public void playButtonAction() {
         log.info("playButtonAction()");
         play();
+    }
+
+    @ActionProxy(id = "STOP", text = "Stop")
+    public void stopButtonAction() {
+        log.info("stopButtonAction()");
+        stop();
+    }
+
+    @ActionProxy(id = "PAUSE", text = "Pause")
+    public void pauseButtonAction() {
+        log.info("pauseButtonAction()");
+        pause();
     }
 
     public void loadShow() {
@@ -140,9 +164,11 @@ public class PlayerView implements Initializable {
 
     public void clearDisplays() {
         cueMessageField.setText("");
-        getRichTextWebEngine().loadContent("");
-        richTextTitleLabel.setText("Script View");
-        richTextPagination.setPageCount(1);
+
+        getWebEngine().loadContent("");
+        titledPane.setText("Script View");
+        pagination.setPageCount(1);
+
     }
 
     public void setCueNote(String text) {
@@ -201,11 +227,11 @@ public class PlayerView implements Initializable {
 
     public void setRichTextPages(List<String> richTextPages) {
         this.richTextPages = richTextPages;
-        getRichTextWebEngine().loadContent("");
-        richTextTitleLabel.setText("Script View");
+        getWebEngine().loadContent("");
+        titledPane.setText("Script View");
 
-        richTextPagination.setPageCount(richTextPages.size() > 0 ? richTextPages.size() : 1);
-        richTextPagination.setCurrentPageIndex(0);
+        pagination.setPageCount(richTextPages.size() > 0 ? richTextPages.size() : 1);
+        pagination.setCurrentPageIndex(0);
 
         if (!richTextPages.isEmpty()) {
             displayRichTextPage(0);
@@ -213,7 +239,7 @@ public class PlayerView implements Initializable {
     }
 
     public void setRichTextPage(int index) {
-        richTextPagination.setCurrentPageIndex(index);
+        pagination.setCurrentPageIndex(index);
     }
 
     private void displayRichTextPage(int index) {
@@ -221,22 +247,24 @@ public class PlayerView implements Initializable {
     }
 
     public void setRichTextContent(String text) {
-        getRichTextWebEngine().loadContent(text);
-        getRichTextWebEngine().titleProperty().addListener((t) -> {
-            log.info("setRichTextContent(): title={}: {}", getRichTextWebEngine().getTitle(), PlayerView.this);
-            richTextTitleLabel.setText(getRichTextWebEngine().getTitle());
+        getWebEngine().loadContent(text);
+        getWebEngine().titleProperty().addListener((t) -> {
+            log.info("setRichTextContent(): title={}: {}", getWebEngine().getTitle(), PlayerView.this);
+            titledPane.setText(getWebEngine().getTitle());
         });
     }
 
+    @ActionProxy(id = "PAGE_DOWN", text = "Next Page")
     public void nextRichTextPage() {
-        int index = richTextPagination.getCurrentPageIndex() + 1;
+        int index = pagination.getCurrentPageIndex() + 1;
         if (index < richTextPages.size()) {
             setRichTextPage(index);
         }
     }
 
+    @ActionProxy(id = "PAGE_UP", text = "Prev Page")
     public void prevRichTextPage() {
-        int index = richTextPagination.getCurrentPageIndex() - 1;
+        int index = pagination.getCurrentPageIndex() - 1;
         if (index >= 0) {
             setRichTextPage(index);
         }

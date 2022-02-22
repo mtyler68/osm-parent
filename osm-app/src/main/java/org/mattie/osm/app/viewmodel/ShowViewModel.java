@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.ActionMap;
 
 /**
@@ -122,11 +123,11 @@ public class ShowViewModel {
 
             // TODO: Remove this in lieu of binding to state property
             // TODO: Makes constants to use for action ID rather than strings
-            ActionMap.action("play").setDisabled(true);
+            ActionMap.action("PLAY").setDisabled(true);
 
         }, () -> {
             setState(State.STOPPED);
-            ActionMap.action("play").setDisabled(false);
+            ActionMap.action("PLAY").setDisabled(false);
             log.info("startCurrent(): end of show: {}", ShowViewModel.this);
         });
     }
@@ -154,13 +155,13 @@ public class ShowViewModel {
                     break;
                 case MANUAL:
                     setState(State.WAITING);
-                    ActionMap.action("play").setDisabled(false);
+                    ActionMap.action("PLAY").setDisabled(false);
                     log.info("{}: -- WAITING FOR MANUAL CUE START --: {}", cvm.getName(), cvm);
                     break;
             }
         }, () -> {
             setState(State.STOPPED);
-            ActionMap.action("play").setDisabled(false);
+            ActionMap.action("PLAY").setDisabled(false);
             log.info("playNext(): end of show: {}", ShowViewModel.this);
         });
 
@@ -171,7 +172,7 @@ public class ShowViewModel {
         if (cueIndex.get() < cueViewModels.size()) {
             CueViewModel currentCueViewModel = cueViewModels.get(cueIndex.get());
             setState(State.PAUSED);
-            ActionMap.action("play").setDisabled(false);
+            ActionMap.action("PLAY").setDisabled(false);
             currentCueViewModel.pause();
         } else {
             log.info("pause(): no cues left to pause");
@@ -187,7 +188,7 @@ public class ShowViewModel {
             case WAITING:
                 getCurrCueViewModel().ifPresent(viewModel -> viewModel.stop());
                 setState(State.STOPPED);
-                ActionMap.action("play").setDisabled(false);
+                ActionMap.action("PLAY").setDisabled(false);
                 break;
         }
     }
@@ -212,5 +213,9 @@ public class ShowViewModel {
         getHotKeyViewModels().stream()
                 .filter(vm -> vm.getHotKey().equalsIgnoreCase(key))
                 .findFirst().ifPresent(vm -> vm.play());
+    }
+
+    protected Action getPlayAction() {
+        return ActionMap.action("PLAY");
     }
 }

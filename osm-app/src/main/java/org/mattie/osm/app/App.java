@@ -1,6 +1,8 @@
 package org.mattie.osm.app;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.ActionMap;
 import org.mattie.osm.app.view.ScreenView;
 
@@ -34,6 +37,8 @@ public class App extends Application {
     private static Stage screenStage;
 
     private static ScreenView screenView;
+
+    private static Map<KeyCode, String> keyCodeToActionIdMap = new HashMap<>();
 
     public static void toggleScreen() {
         if (screenStage != null) {
@@ -111,47 +116,24 @@ public class App extends Application {
 //            stage2.show();
 //
 //        }
+        // Configure KeyCode to actions
+        keyCodeToActionIdMap.put(KeyCode.SPACE, "PLAY");
+        keyCodeToActionIdMap.put(KeyCode.END, "STOP");
+
         stage.addEventFilter(KeyEvent.KEY_PRESSED, (evt) -> {
             log.info("key: {},{},{}", evt.getText(), evt.getCode().name(), evt.getCharacter());
 
-            switch (evt.getCode()) {
-                case SPACE:
-                    ActionMap.action("play").handle(new ActionEvent());
-                    break;
-
-                case END:
-                    getShowManager().stop();
-                    break;
-
-                case PAUSE:
-                    getShowManager().pause();
-                    break;
-
-                case PAGE_UP:
-                    getShowManager().getPlayerView().prevRichTextPage();
-                    break;
-
-                case PAGE_DOWN:
-                    getShowManager().getPlayerView().nextRichTextPage();
-                    break;
-
-                default:
-                    getShowManager().playHotKey(evt.getText().toUpperCase());
-                // Pass along for hot key
+            Action act = null;
+            if (keyCodeToActionIdMap.containsKey(evt.getCode())) {
+                act = ActionMap.action(keyCodeToActionIdMap.get(evt.getCode()));
+            } else if (ActionMap.action(evt.getCode().name()) != null) {
+                act = ActionMap.action(evt.getCode().name());
             }
 
-            if (evt.getCode() == KeyCode.END) {
-                //showViewModel.stop();
-                return;
-            } else if (evt.getCode() == KeyCode.LEFT) {
-                //showViewModel.back();
-                return;
-            }
-
-            if (" ".equals(evt.getText())) {
-                //showViewModel.playManual();
+            if (act != null) {
+                act.handle(new ActionEvent());
             } else {
-                //showViewModel.playHotKey(evt.getText());
+                getShowManager().playHotKey(evt.getText().toLowerCase());
             }
 
         });
