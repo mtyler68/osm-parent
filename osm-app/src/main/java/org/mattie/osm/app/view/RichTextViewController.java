@@ -11,7 +11,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
@@ -22,14 +21,13 @@ import org.controlsfx.control.action.ActionProxy;
  * @author Matthew Tyler
  */
 @Slf4j
-@RequiredArgsConstructor
-public class RichTextView implements Initializable {
+public class RichTextViewController implements Initializable {
 
-    private final TitledPane titledPane;
+    public TitledPane titledPane;
 
-    private final WebView richText;
+    public WebView richText;
 
-    private final Pagination pagination;
+    public Pagination pagination;
 
     @Getter(AccessLevel.PRIVATE)
     private WebEngine webEngine;
@@ -82,7 +80,7 @@ public class RichTextView implements Initializable {
     public void setRichTextContent(String text) {
         getWebEngine().loadContent(text);
         getWebEngine().titleProperty().addListener((t) -> {
-            log.info("setRichTextContent(): title={}: {}", getWebEngine().getTitle(), RichTextView.this);
+            log.info("setRichTextContent(): title={}: {}", getWebEngine().getTitle(), RichTextViewController.this);
             titledPane.setText(getWebEngine().getTitle());
         });
     }

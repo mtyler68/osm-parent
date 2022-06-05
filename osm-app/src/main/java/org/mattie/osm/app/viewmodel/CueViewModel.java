@@ -280,4 +280,26 @@ public abstract class CueViewModel<C extends Cue> {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("No CueViewModel registered for cue class: " + cue.getClass()));
     }
+
+    /**
+     * Can this cue view be faded?
+     *
+     * @return
+     */
+    public boolean isFadeable() {
+        return false;
+    }
+
+    /**
+     * If this cue can be faded, start fading with the given duration. At the
+     * end of the fade, this cue will execute its finished tasks.
+     *
+     * If the duration results in a time greater than the remaining runtime, the
+     * duration will be shortened to the remaining runtime.
+     *
+     * @param dur
+     */
+    public void fade(Duration dur) {
+        throw new UnsupportedOperationException("This cue cannot be faded");
+    }
 }

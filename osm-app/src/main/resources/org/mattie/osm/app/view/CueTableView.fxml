@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView fx:id="cueTable" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.views.CueTableViewController">
+   <columns>
+      <TableColumn fx:id="cueTableColumn" prefWidth="75.0" text="Cue" />
+      <TableColumn fx:id="typeTableColumn" prefWidth="75.0" text="Type" />
+      <TableColumn fx:id="descTableColumn" prefWidth="75.0" text="Description" />
+      <TableColumn fx:id="stateTableColumn" prefWidth="75.0" text="State" />
+      <TableColumn fx:id="triggerTableColumn" prefWidth="75.0" text="Trigger" />
+      <TableColumn prefWidth="75.0" text="Info" />
+      <TableColumn fx:id="currentTimeTableColumn" prefWidth="75.0" text="Current" />
+      <TableColumn fx:id="lengthTableColumn" prefWidth="75.0" text="Length" />
+      <TableColumn fx:id="delayTableColumn" prefWidth="75.0" text="Delay" />
+   </columns>
+</TableView>

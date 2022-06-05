@@ -54,7 +54,7 @@ public class Main {
         generateDemo(hotKeyMedia(), "hot_key_media");
         generateDemo(twoPageRichText(), "two_page_rich_text");
         generateDemo(oneVideoMediaCue(), "one_video_media_cue");
-        generateDemo(springRecital2022(), "2022_spring_recital");
+        generateDemo(SpringRecital22.springRecital2022(), "2022_spring_recital");
     }
 
     private static void generateDemo(Show show, String title) throws IOException {
@@ -66,7 +66,7 @@ public class Main {
     }
 
     private static void save(String filename, Show show) throws IOException {
-        File dir = new File("shows");
+        File dir = new File("C:\\projects\\shows");
         if (!dir.exists()) {
             dir.mkdirs();
         }
@@ -75,7 +75,7 @@ public class Main {
     }
 
     private static Show open(String filename) throws IOException {
-        File dir = new File("shows");
+        File dir = new File("C:\\projects\\shows");
         File file = new File(dir, filename);
         return Utils.getObjectMapper().readValue(file, Show.class);
     }
@@ -661,7 +661,7 @@ public class Main {
                 .setName("Two Page Rich Text");
 
         RichTextCue richTextCue = richTextCue("Moana Script",
-                Constants.MOANA_PG1, Constants.MOANA_PG2);
+                Constants.MOANA_PG1, Constants.MOANA_PG2, Constants.MOANA_SC1_PG1);
         show.add(richTextCue);
 
         return show;
@@ -679,7 +679,8 @@ public class Main {
                 .setFadeIn(Duration.ofSeconds(5))
                 .setFadeOut(Duration.ofSeconds(5))
                 .setVolume(1.0);
-        MediaCue cue = mediaCue("Contemporary 2021", resource);
+        MediaCue cue = mediaCue("Contemporary 2021", resource)
+                .setVideoDeviceName("screen2");
         show.add(cue);
 
         return show;

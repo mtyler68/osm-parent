@@ -12,8 +12,8 @@ import lombok.experimental.Accessors;
 public class DmxChannel {
 
     public static enum Type {
-        MONO_VALUE,
-        MONO_CENTILE,
+        DIMMER_VALUE,
+        DIMMER_CENTILE,
         DISCRETE,
         RGB_VALUE,
         RGB_CENTILE
@@ -23,5 +23,10 @@ public class DmxChannel {
 
     private int address = 1;
 
-    private Type type = Type.MONO_VALUE;
+    private Type type = Type.DIMMER_VALUE;
+
+    /**
+     *
+     */
+    private int[] addresses = new int[1];
 }

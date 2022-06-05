@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+
+<TitledPane animated="false" collapsible="false" prefHeight="267.0" prefWidth="309.0" text="Notes" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.NoteViewController">
+   <content>
+      <TableView fx:id="noteTable" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="timeColumn" editable="false" prefWidth="75.0" sortable="false" text="Time" />
+          <TableColumn fx:id="noteColumn" editable="false" minWidth="-Infinity" prefWidth="250.0" sortable="false" text="Note" />
+        </columns>
+      </TableView>
+   </content>
+</TitledPane>

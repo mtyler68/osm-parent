@@ -117,8 +117,8 @@ public class App extends Application {
 //
 //        }
         // Configure KeyCode to actions
-        keyCodeToActionIdMap.put(KeyCode.SPACE, "PLAY");
-        keyCodeToActionIdMap.put(KeyCode.END, "STOP");
+        keyCodeToActionIdMap.put(KeyCode.SPACE, ActionId.PLAY);
+        keyCodeToActionIdMap.put(KeyCode.END, ActionId.STOP);
 
         stage.addEventFilter(KeyEvent.KEY_PRESSED, (evt) -> {
             log.info("key: {},{},{}", evt.getText(), evt.getCode().name(), evt.getCharacter());

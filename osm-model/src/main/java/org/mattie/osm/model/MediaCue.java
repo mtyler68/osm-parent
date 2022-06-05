@@ -14,4 +14,11 @@ import lombok.experimental.Accessors;
 public class MediaCue extends Cue {
 
     private MediaResource media;
+
+    /**
+     * Named video device to target video media.
+     */
+    private String videoDeviceName;
+
+    private String audioDeviceName;
 }

@@ -19,6 +19,10 @@ public class MediaPlaylistCue extends Cue {
 
     private double volume = 1;
 
+    private String videoDeviceName;
+
+    private String audioDeviceName;
+
     /**
      * Defines the amount of time a crossfade occurs between the end of one song
      * and the beginning of the next song. Songs are faded over the indicated

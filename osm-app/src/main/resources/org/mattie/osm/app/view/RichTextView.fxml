@@ -6,14 +6,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.RichTextView">
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mattie.osm.app.view.RichTextViewController">
    <children>
-      <AnchorPane fx:id="titledPane" VBox.vgrow="ALWAYS">
+      <AnchorPane VBox.vgrow="ALWAYS">
          <children>
-            <TitledPane alignment="CENTER" animated="false" collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Script View" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TitledPane fx:id="titledPane" alignment="CENTER" animated="false" collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Script View" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <content>
-                  <WebView fx:id="richText" contextMenuEnabled="false" prefHeight="200.0" prefWidth="200.0" />
+                  <WebView fx:id="richText" prefHeight="200.0" prefWidth="200.0" />
                </content>
             </TitledPane>
          </children>
